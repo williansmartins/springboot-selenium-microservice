@@ -5,6 +5,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class SearchPage {
 
-	@FindBy(id = "lst-ib")
+	@FindBy(name = "q")
 	public WebElement searchInput;
 }

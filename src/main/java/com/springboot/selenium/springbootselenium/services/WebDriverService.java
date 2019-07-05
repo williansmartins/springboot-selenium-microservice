@@ -2,6 +2,7 @@ package com.springboot.selenium.springbootselenium.services;
 
 import com.springboot.selenium.springbootselenium.platform.browser.BrowserTypes;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.DriverManagerType;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,18 +16,19 @@ public class WebDriverService {
 	private WebDriver driver;
 
 	public WebDriver setupWebDriver(BrowserTypes browserTypes) {
+		DriverManagerType driverManagerType = DriverManagerType.CHROME;
 		switch (browserTypes) {
 			case CHROME:
-				ChromeDriverManager.getInstance().setup();
+			ChromeDriverManager.getInstance(driverManagerType ).setup();
 				driver = new ChromeDriver();
 				break;
 			case FIREFOX:
-				FirefoxDriverManager.getInstance().setup();
+				FirefoxDriverManager.getInstance(driverManagerType).setup();
 				driver = new FirefoxDriver();
 			case CHROME_HEADLESS:
 				ChromeOptions options = new ChromeOptions();
 				options.addArguments("headless");
-				ChromeDriverManager.getInstance().setup();
+				ChromeDriverManager.getInstance(driverManagerType).setup();
 				driver = new ChromeDriver(options);
 				break;
 		}

@@ -27,6 +27,6 @@ repositories {
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.seleniumhq.selenium:selenium-java:3.9.1')
-	compile('io.github.bonigarcia:webdrivermanager:2.1.0')
+	compile('io.github.bonigarcia:webdrivermanager:3.3.0')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
